@@ -1,0 +1,20 @@
+{
+  "name":        "emancypage/linkchecker",
+  "description": "",
+  "authors":     [
+    {
+      "name":  "Szymon Szymkowiak",
+      "email": "szymkowiak.szymon@gmail.com"
+    }
+  ],
+  "minimum-stability": "dev",
+  "prefer-stable": true,
+  "autoload": {
+    "psr-4": {
+      "LinkChecker\\": "src/"
+    }
+  },
+  "require": {
+    "guzzlehttp/guzzle": "^6.3"
+  }
+}
