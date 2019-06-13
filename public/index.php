@@ -32,11 +32,12 @@ $controller = new CheckerController();
 	<?php
 	} ?>
 	<form action="./index.php" method="POST">
-		<textarea name="links"></textarea>
-
+		<label>Add links, each in new line:<br>
+			<textarea name="links" rows="4" cols="50"></textarea></label>
+		<br>
 		<input type="submit">
 	</form>
-
+	<br>
 	<table>
 		<tr>
 			<th>Url</th>
