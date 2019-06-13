@@ -13,6 +13,15 @@ $controller = new CheckerController();
 <head>
 	<meta charset="UTF-8">
 	<title>Link Checker</title>
+	<style>
+		table {
+			border-collapse: collapse;
+		}
+		th, td {
+			border: 1px solid;
+			padding: 2px 5px;
+		}
+	</style>
 </head>
 <body>
 	<h1>Link checker</h1>
@@ -30,9 +39,9 @@ $controller = new CheckerController();
 
 	<table>
 		<tr>
-			<td>Url</td>
-			<td>Status</td>
-			<td>301 redirection location</td>
+			<th>Url</th>
+			<th>Status</th>
+			<th>301 redirection location</th>
 		</tr>
 		<?php foreach ($controller->getStatusArray() as $url => $aData): ?>
 			<tr>
