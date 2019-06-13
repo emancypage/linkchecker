@@ -16,6 +16,12 @@ $controller = new CheckerController();
 </head>
 <body>
 	<h1>Link checker</h1>
+	<?php if (!empty($controller->getErrors())) { ?>
+		<?php foreach ($controller->getErrors() as $errorMessage) { ?>
+			<div class="error"><?php echo $errorMessage; ?></div>
+		<?php } ?>
+	<?php
+	} ?>
 	<form action="./index.php" method="POST">
 		<textarea name="links"></textarea>
 

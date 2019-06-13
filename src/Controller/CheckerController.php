@@ -3,6 +3,7 @@
 namespace LinkChecker\Controller;
 
 use GuzzleHttp\Client;
+use GuzzleHttp\Exception\RequestException;
 
 class CheckerController
 {
@@ -12,6 +13,10 @@ class CheckerController
     private $linksArray = [];
 
     private $statusArray = [];
+    /**
+     * @var array
+     */
+    private $errors = [];
 
     public function __construct()
     {
@@ -42,8 +47,8 @@ class CheckerController
                 ]);
                 $this->statusArray[$url]['statusCode'] = $res->getStatusCode();
                 $this->statusArray[$url]['headers'] = $res->getHeaders();
-            } catch (GuzzleHttp\Exception\RequestException $e) {
-
+            } catch (RequestException $e) {
+                $this->setErrors($e->getMessage());
             }
 
         }
@@ -71,5 +76,21 @@ class CheckerController
     public function getStatusArray(): array
     {
         return $this->statusArray;
+    }
+
+    /**
+     * @return array
+     */
+    public function getErrors(): array
+    {
+        return $this->errors;
+    }
+
+    /**
+     * @param string $errors
+     */
+    public function setErrors(string $errors): void
+    {
+        $this->errors[] = $errors;
     }
 }
